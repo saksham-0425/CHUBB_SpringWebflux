@@ -1,32 +1,66 @@
 package com.webfluxapp.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
 
+@Table("tutorials") 
 public class Tutorial {
-  
-  @Id
-  private int id;
 
-  private String title;
+    @Id
+    private Integer id;
 
-  private String description;
+    @Column("title")
+    private String title;
 
-  private boolean published;
+    @Column("description")
+    private String description;
 
-  public Tutorial() {
+    @Column("published")
+    private boolean published;
 
-  }
+    public Tutorial() {}
 
-  public Tutorial(String title, String description, boolean published) {
-    this.title = title;
-    this.description = description;
-    this.published = published;
-  }
+    public Tutorial(String title, String description, boolean published) {
+        this.title = title;
+        this.description = description;
+        this.published = published;
+    }
 
-  // getters and setters
+    public Integer getId() {
+        return id;
+    }
 
-  @Override
-  public String toString() {
-    return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    @Override
+    public String toString() {
+        return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
+    }
 }
